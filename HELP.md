@@ -32,3 +32,13 @@ Depending on your application's configuration some manual setup may be required:
      * Not required *
 
 ===============================================================================
+
+
+
+There are many commands that devise provides..
+
+rails generate devise:install - will create config/devise.rb
+rails generate devise User - will create db/migration-file-for-user-model which commented code,which you can uncomment,if you need other modules..such as confirmable,omniauth etc
+rails generate devise:views - will create all views in the devise folder with app/views/devise/sessions,app/views/devise/confirmations,registrations etc folder and its views respectively.
+rails generate devise:views users - will create folder of app/views/users/passwords/,app/views/users/confirmations ..etc instead of devise folder above.
+rails generate devise:controllers - will create all controllers..similar to above...here it will create app/controllers/devise/sessions_controller.rb with default commented code,which you need to edit else leave it as it is for basic authentication.Moreover,you can also add users scope in the end,to generate controllers in controllers/users/ and not controllers/devise/

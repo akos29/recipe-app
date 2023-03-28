@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
+  get 'user/index'
+  get 'user/show'
+  get 'user/new'
+  get 'user/edit'
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
-  #devise_for :users
-  #root "users#index"
+  root "users#index"
 end
