@@ -1,0 +1,13 @@
+nav {
+    display: flex;
+    text-align: center;
+    padding: 10px;
+    gap: 20px;
+  }
+  
+  nav a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid;
+  }
