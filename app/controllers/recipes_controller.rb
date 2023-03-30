@@ -1,13 +1,29 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes
   end
 
-  def show; end
+  def show
+    @user = current_user
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe_foods = @recipe.recipe_foods
+  end
 
-  def new; end
+  def new
+    @new_recipe = Recipe.new 
+  end
 
-  def create; end
+  def create
+    @food = Recipe.new(params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public))
+    @food.user = current_user
+    if @food.save
+      flash[:success] = 'Recipe successfully added!'
+      redirect_to user_recipes_path(current_user)
+    else
+      flash.now[:error] = 'Recipe creation failed!'
+      render :new
+    end
+  end
 
   def destroy
     @recipe = Recipe.find(params[:id])

@@ -1,15 +1,17 @@
 <div class='container'>
-<%= link_to "New Recipe", new_recipe_path %>
+<%= link_to "New recipe", new_user_recipe_path(current_user) %>
   <h1>Recipes</h1>
   <% @recipes.each do |recipe| %>
   <div class='box-container'>
     <div class='recipe-box'>
-      <h2><%= link_to recipe.name, recipe_path(recipe.id) %></h2>
+      <h2><%= link_to recipe.name, user_recipe_path(current_user, recipe.id) %></h2>
       <p><%= recipe.description %></p>
     </div>
     
-      <%= form_for recipe, url: recipe_path(recipe), method: :delete do |f| %>
+      <%= form_for recipe, url: user_recipe_path(current_user, recipe), method: :delete do |f| %>
         <%= f.submit "Remove", data: { confirm: "Are you sure?" } %>
       <% end %>
+
+  </div>
   <% end %>
 </div>

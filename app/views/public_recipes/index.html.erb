@@ -3,17 +3,17 @@
 <%else%>
 <div class="px-4 py-6"><h1 class="font-bold text-important bg-mainTheme dark:bg-darkTheme text-white py-4 rounded-md text-center">Public Recipes</h1>
 
-<ul class="flex flex-col gap-5 mt-4">
+<ul class="d-flex flex-column gap-5">
   <% @recipes.each do |recipe|%>
-  <li>
-    <a href="/users/<%= recipe.user_id%>/recipes/<%=recipe.id%>" class="description grid grid-cols-1 sm:grid-cols-3 p-3 bg-gradient-to-r hover:shadow-custom min-h-[130px] text-start border-b border-black dark:border-darkTheme cursor-pointer rounded-md">
-      <div class="col-span-1 relative flex flex-col justify-center items-center">
+  <li class=" list-group-item">
+    <a href="/users/<%= recipe.user_id%>/recipes/<%=recipe.id%>" class="d-flex p-3 flex-wrap border border-2 border-dark">
+      <div class="col-span-1 relative flex flex-col justify-center items-center col-12 col-md-6">
         <h2 class="font-important text-important"><%= recipe.name %></h2>
         <span>By: <%= recipe.user.name%></span>
         </div>
-      <p class="col-span-2 py-4 px-2 flex flex-col">
-        <span>Total Food Items:<%= recipe.foods_count%> </span>
-        <span>Total Price: <%= recipe.total_price%></span>
+      <p class="py-4 px-2 flex flex-col col-12 col-md-6">
+        <span>Total Food Items:<%= recipe.foods.length%> </span>
+        <span>Total Price: <%= recipe.total %></span>
       </p>
     </a>
     </li>

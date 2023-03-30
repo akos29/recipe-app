@@ -6,6 +6,7 @@
         </div>
         <%= link_to "Home", root_path, class: "nav-link sm:block hidden" %>
         <%= link_to "Foods", user_foods_path(current_user), class: "nav-link" %>
+        <%= link_to "Recipes", user_recipes_path(current_user), class: "nav-link" %>
         <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link hidden sm:block" %>
         <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout-btn" %>
         <% else %>
