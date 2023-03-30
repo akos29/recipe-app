@@ -6,7 +6,7 @@ class Ability
 
     can :read, Recipe, public: true
     can :read, Food
-    can(:manage, :all, user:)
+    can(:manage, :all, user: user)
     can :read, Recipe, public: true
     can :read, Food
   end
