@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :recipe_foods
-  resources :recipes
-  resources :foods
   devise_for :users
-  root to: "home#index" 
+  root "recipes#index"
+
+  delete '/recipes/:id', to: 'recipes#destroy', as: 'recipe'
+  resources :recipes, only: [:index, :show, :new, :create, :destroy]
 end

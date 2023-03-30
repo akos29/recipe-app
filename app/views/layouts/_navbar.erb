@@ -1,6 +1,18 @@
-<nav>
-    <%= link_to "Foods", root_path %>
-    <%= link_to "Recipes", root_path %>
-    <%= link_to "Public recipes", root_path %>
-    <%= link_to "Shopping list", root_path %>
-</nav>
+
+
+<% if user_signed_in? %> 
+  <div>
+    <div> Welcome <%= current_user.email %> </div> 
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+  </div>
+  <div>
+    <nav>
+        <%= link_to "Foods", root_path %>
+        <%= link_to "Recipes", root_path %>
+        <%= link_to "Public recipes", root_path %>
+        <%= link_to "Shopping list", root_path %>
+    </nav>
+  </div>
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %> 
+<% end %>
