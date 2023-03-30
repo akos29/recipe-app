@@ -1,9 +1,25 @@
-<h1>New food</h1>
+<h1 class="food-form-header">Add Food</h1>
 
-<%= render "form", food: @food %>
+<%= form_with model: @food, url: user_foods_path, method: :post, data: { turbo: false } do |form| %>
+  <div>
+    <%= form.label :name, class: "food-form-label" %>
+    <%= form.text_field :name, class: "food-form-input" %>
+  </div>
 
-<br>
+  <div>
+    <%= form.label :measurement_unit, class: "food-form-label" %>
+    <%= form.select :measurement_unit, options_for_select([['Please choose unit', 'option'], ['kg', 'kg'], ['g', 'g'], ['lb', 'lb']], { class: "food-form-select" }) %>
+  </div>
 
-<div>
-  <%= link_to "Back to foods", foods_path %>
-</div>
+  <div>
+    <%= form.label :price, class: "food-form-label" %>
+    <%= form.text_field :price, class: "food-form-input" %>
+  </div>
+
+  <div>
+    <%= form.label :quantity, class: "food-form-label" %>
+    <%= form.text_field :quantity, class: "food-form-input" %>
+  </div>
+
+  <%= form.submit "Add Food", class: "food-form-submit" %>
+<% end %>
