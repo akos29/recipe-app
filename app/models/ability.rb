@@ -4,10 +4,9 @@ class Ability
   def initialize(user)
     return unless user.present?
 
-    can :read, Recipe, public: true
-    can :read, Food
-    can(:manage, :all, user:)
-    can :read, Recipe, public: true
-    can :read, Food
+    can :manage, Food, user_id: user.id # if the user is logged in can manage it's own food
+    can :manage, Recipe, user_id: user.id # if the user is logged in can manage it's own recipes
+    return unless user.admin? # additional permissions for administrators
+    can :manage, :all # finally we give all remaining permissions only to the admins
   end
 end
