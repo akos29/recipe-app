@@ -113,8 +113,8 @@ td.foods-list-col-food {
 
 /* Form header */
 .food-form-header {
-  background-color: #07c;
-  color: white;
+  background-color: rgb(134, 136, 138);
+  color: black;
   font-weight: bold;
   font-size: 24px;
   text-align: center;
