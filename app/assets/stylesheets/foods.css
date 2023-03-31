@@ -1,0 +1,157 @@
+.foods-list-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.foods-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.foods-list-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.add-food-btn {
+  background-color: #0069d9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-food-btn:hover {
+  background-color: #0069d9;
+}
+
+.foods-list-table {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead tr {
+  background-color: #0069d9;
+  color: #fff;
+}
+
+th {
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+}
+
+.foods-list-col-food {
+  width: 40%;
+}
+
+.foods-list-col-measurement {
+  width: 30%;
+}
+
+.foods-list-col-price {
+  width: 20%;
+}
+
+.foods-list-col-actions {
+  width: 10%;
+}
+
+.foods-list-empty-text {
+  text-align: center;
+  color: #f00;
+  font-size: 18px;
+  padding: 12px;
+}
+
+.foods-list-row {
+  background-color: #f9f9f9;
+}
+
+.foods-list-row:hover {
+  background-color: #ddd;
+}
+
+.delete-food-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-food-btn:hover {
+  background-color: #c82333;
+}
+
+/* Food form styles */
+
+/* Form container */
+.food-form-container {
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+/* Form header */
+.food-form-header {
+  background-color: #07c;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Form fields */
+.food-form-label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.food-form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.food-form-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+/* Form submit button */
+.food-form-submit {
+  background-color: #07c;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.food-form-submit:hover {
+  background-color: #005daa;
+}

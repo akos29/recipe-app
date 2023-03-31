@@ -1,13 +1,164 @@
-nav {
+.navbar {
+  background-color: #333;
+  color: #fff;
   display: flex;
-  text-align: center;
-  padding: 10px;
-  gap: 20px;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-nav a {
-  padding: 10px;
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  margin-left: 20px;
+  color: #fff;
   text-decoration: none;
-  color: black;
-  border-bottom: 2px solid;
+}
+
+.user-info {
+  margin-right: 20px;
+  color: #fff;
+}
+
+.logout-btn {
+  margin-left: 20px;
+  padding: 5px 10px;
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-link {
+    margin: 10px 0;
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  .logout-btn {
+    margin: 10px 0;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+input[type="submit"],
+.actions__button {
+  display: block;
+  padding: 0.5em;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+.actions__button:hover {
+  background-color: #0069d9;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+/* Style for form fields */
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.field input[type="email"],
+.field input[type="password"],
+.field input[type="text"] {
+  width: 20em;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style for remember me checkbox */
+.field input[type="checkbox"] {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.field label[for="user_remember_me"] {
+  font-weight: normal;
+}
+
+/* Style for submit button */
+.actions input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+.Log-in,
+.Sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #0069d9;
+}
+
+.notice,
+.alert {
+  margin: 1em;
+  font-weight: bold;
+  color: rgb(184, 51, 51);
 }
