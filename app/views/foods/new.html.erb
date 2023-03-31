@@ -1,25 +1,29 @@
-<h1 class="food-form-header">Add Food</h1>
+<div class="container">
+  <div style="width: 40%;">
+    <h1 class="food-form-header">Add Food</h1>
 
-<%= form_with model: @food, url: user_foods_path, method: :post, data: { turbo: false } do |form| %>
-  <div>
-    <%= form.label :name, class: "food-form-label" %>
-    <%= form.text_field :name, class: "food-form-input" %>
+    <%= form_with model: @food, url: user_foods_path, method: :post, data: { turbo: false } do |form| %>
+      <div>
+        <%= form.label :name, class: "food-form-label" %>
+        <%= form.text_field :name, class: "food-form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :measurement_unit, class: "food-form-label" %>
+        <%= form.select :measurement_unit, options_for_select([['Please choose unit', 'option'], ['kg', 'kg'], ['g', 'g'], ['lb', 'lb']], { class: "food-form-select" }) %>
+      </div>
+
+      <div>
+        <%= form.label :price, class: "food-form-label" %>
+        <%= form.text_field :price, class: "food-form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :quantity, class: "food-form-label" %>
+        <%= form.text_field :quantity, class: "food-form-input" %>
+      </div>
+
+      <%= form.submit "Add Food", class: "food-form-submit" %>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :measurement_unit, class: "food-form-label" %>
-    <%= form.select :measurement_unit, options_for_select([['Please choose unit', 'option'], ['kg', 'kg'], ['g', 'g'], ['lb', 'lb']], { class: "food-form-select" }) %>
-  </div>
-
-  <div>
-    <%= form.label :price, class: "food-form-label" %>
-    <%= form.text_field :price, class: "food-form-input" %>
-  </div>
-
-  <div>
-    <%= form.label :quantity, class: "food-form-label" %>
-    <%= form.text_field :quantity, class: "food-form-input" %>
-  </div>
-
-  <%= form.submit "Add Food", class: "food-form-submit" %>
-<% end %>
+</div>
