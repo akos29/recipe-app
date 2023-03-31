@@ -158,8 +158,11 @@ input[type="submit"]:hover,
 }
 
 .notice,
-.alert {
+.alert,
+#error_explanation {
   margin: 1em;
   font-weight: bold;
   color: rgb(184, 51, 51);
+  text-align: center;
 }
+

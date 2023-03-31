@@ -1,0 +1,37 @@
+.sign_in {
+    width: 100%;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.sign_in .options {
+    display: flex;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.sign_in .options a:first-child {
+    margin-right: 1em;
+}
+
+.sign_in form {
+    padding: 1em;
+    border: solid 1px gray;
+    border-radius: 5px;
+    background: #ffffffa1;
+}
+
+form #error_explanation {
+    text-align: left;
+}
+
+form #error_explanation h2 {
+    font-size: 1.2em;
+}
