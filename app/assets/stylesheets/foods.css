@@ -1,23 +1,23 @@
-.foods-list-container {
+.foods-container {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.foods-list-header {
+.foods-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.foods-list-title {
+.foods-title {
   font-size: 24px;
   font-weight: bold;
   color: #333;
 }
 
 .add-food-btn {
-  background-color: #0069d9;
+  background-color: #3c3e40c3;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -28,10 +28,11 @@
 }
 
 .add-food-btn:hover {
-  background-color: #0069d9;
+  background-color: #090909;
+  color: white;
 }
 
-.foods-list-table {
+.foods-table {
   overflow-x: auto;
 }
 
@@ -41,7 +42,7 @@ table {
 }
 
 thead tr {
-  background-color: #0069d9;
+  background-color: #555758;
   color: #fff;
 }
 
@@ -53,6 +54,10 @@ th {
 
 .foods-list-col-food {
   width: 40%;
+}
+
+td.foods-list-col-food {
+  padding: 1em 1em;
 }
 
 .foods-list-col-measurement {
@@ -76,6 +81,7 @@ th {
 
 .foods-list-row {
   background-color: #f9f9f9;
+  margin: 2em 0;
 }
 
 .foods-list-row:hover {
