@@ -1,6 +1,5 @@
 .navbar {
-  background-color: #333;
-  color: #fff;
+  background-color: #3333334f;
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -9,24 +8,26 @@
 .nav-links {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .nav-link {
   margin-left: 20px;
-  color: #fff;
+  color: black;
   text-decoration: none;
+  display: flex;
 }
 
 .user-info {
   margin-right: 20px;
-  color: #fff;
+  color: black;
 }
 
 .logout-btn {
   margin-left: 20px;
   padding: 5px 10px;
-  background-color: #fff;
-  color: #333;
+  background-color: black;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -34,6 +35,11 @@
 
 .logout-btn:hover {
   background-color: #ddd;
+}
+
+.bridge {
+  margin-left: auto;
+  display: flex;
 }
 
 @media (max-width: 768px) {
@@ -75,8 +81,8 @@ input[type="submit"],
 .actions__button {
   display: block;
   padding: 0.5em;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #696a6a;
+  color: white;
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -84,7 +90,7 @@ input[type="submit"],
 
 input[type="submit"]:hover,
 .actions__button:hover {
-  background-color: #0069d9;
+  background-color: #070808;
 }
 
 .alert-success {
@@ -151,14 +157,11 @@ input[type="submit"]:hover,
   align-items: center;
 }
 
-a {
-  text-decoration: none;
-  color: #0069d9;
-}
-
 .notice,
-.alert {
+.alert,
+#error_explanation {
   margin: 1em;
   font-weight: bold;
   color: rgb(184, 51, 51);
+  text-align: center;
 }

@@ -1,17 +1,37 @@
-<div class='container'>
-<%= link_to "New recipe", new_user_recipe_path(current_user) %>
-  <h1>Recipes</h1>
-  <% @recipes.each do |recipe| %>
-  <div class='box-container'>
-    <div class='recipe-box'>
-      <h2><%= link_to recipe.name, user_recipe_path(current_user, recipe.id) %></h2>
-      <p><%= recipe.description %></p>
+ <div class="foods-container">
+  <div class="foods-header">
+    <h1 class="foods-title">Recipes</h1>
+    <div>
+        <%= link_to "New Recipe", new_user_recipe_path(current_user), class: 'add-food-btn' %>
     </div>
-    
-      <%= form_for recipe, url: user_recipe_path(current_user, recipe), method: :delete do |f| %>
-        <%= f.submit "Remove", data: { confirm: "Are you sure?" } %>
-      <% end %>
-
   </div>
-  <% end %>
+  <div class="foods-table">
+    <table>
+      <thead>
+        <tr>
+          <th class="foods-list-col-food">Recipes</th>
+        </tr>
+      </thead>
+      <% if @recipes.empty? %>
+        <tbody>
+          <tr class="foods-list-empty">
+            <td colspan="4" class="foods-list-empty-text">Please Add Recipes!!!</td>
+          </tr>
+        </tbody>
+      <% else %>
+        <tbody>
+          <% @recipes.each do |recipe| %>
+            <tr class="foods-list-row">
+              <td class="foods-list-col-food recipe">
+                <h2><%= link_to recipe.name, user_recipe_path(current_user, recipe.id) %></h2>
+                <%= form_for recipe, url: user_recipe_path(current_user, recipe), method: :delete do |f| %>
+                    <%= f.submit "Remove", data: { confirm: "Are you sure?" } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
 </div>

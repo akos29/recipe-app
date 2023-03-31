@@ -1,16 +1,12 @@
-.container {
-  padding: 20px;
-}
-
-.box-container {
-  border: 2px solid;
-  padding: 20px;
-  margin: 20px;
-}
-
-.recipe-box {
+.recipe {
   display: flex;
-  padding-bottom: 10px;
-  gap: 50px;
-  align-items: center;
+  width: 100%;
+}
+
+.recipe form {
+  margin-left: auto;
+}
+
+.recipe a {
+  color: black;
 }

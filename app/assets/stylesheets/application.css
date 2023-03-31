@@ -12,3 +12,17 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

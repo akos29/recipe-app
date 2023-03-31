@@ -1,40 +1,44 @@
 <div class="container">
-<h1 class="food-form-header"><%= @recipe.name%></h1>
-<div class="row">
-    <div class="col-12 col-md-6">
-        <p>preparation time: <%= @recipe.preparation_time%></p>
-        <p>cooking time: <%= @recipe.cooking_time%></p>
-    </div>
-    <div class="col-12 col-md-6">
-        <% if @recipe.user.id == current_user.id %>
-        <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary">
-        <% end %>
-    </div>
-</div>
-<p><%= @recipe.description%></p>
+    <div>
+        <h1 class="food-form-header"><%= @recipe.name%></h1>
+        <div class="row" style=" padding: 1em;">
+            <div class="col-12 col-md-6">
+                <p>preparation time: <b><%= @recipe.preparation_time%></b></p>
+                <p>cooking time: <b><%= @recipe.cooking_time%></b></p>
+            </div>
+            <div class="col-12 col-md-6">
+                <% if @recipe.user.id == current_user.id %>
+                    <%# <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary"> %>
+                <% end %>
+            </div>
+        </div>
 
-<div class="row text-center">
-    <div class="col-12 col-md-6">
-        <%= button_to "Generate shopping list", root_path, class: "btn btn-info" %>
-    </div>
-    <div class="col-12 col-md-6">
-        <%= button_to "Add ingredient", root_path, class: "btn btn-info" %>
-    </div>
-</div>
+        <p style=" padding: 1em;"><%= @recipe.description%></p>
 
-<table class="table">
-    <tr>
-        <th scope="col">Foods</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">VAlue</th>
-        <th scope="col">Actions</th>
-    </tr>
-    <% @recipe_foods.each do |recipe_food|%>
-        <tr>
-            <td><%= recipe_food.food.name %></td>
-            <td><%= recipe_food.food.quantity %></td>
-            <td><%= recipe_food.food.price %></td>
-            <td><%= button_to "Remove", user_recipe_recipe_food_path(@recipe.user, @recipe, recipe_food), method: :delete %></td>
-        </tr>
-    <%end%>
-</table>
+        <div class="row text-center" style=" padding: 1em;">
+            <div class="col-12 col-md-6">
+                <%= button_to "Generate shopping list", root_path, class: "btn btn-info" %>
+            </div>
+            <div class="col-12 col-md-6">
+                <%= button_to "Add ingredient", root_path, class: "btn btn-info" %>
+            </div>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th scope="col">Foods</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">VAlue</th>
+                <th scope="col">Actions</th>
+            </tr>
+            <% @recipe_foods.each do |recipe_food|%>
+                <tr>
+                    <td><%= recipe_food.food.name %></td>
+                    <td><%= recipe_food.food.quantity %></td>
+                    <td><%= recipe_food.food.price %></td>
+                    <td><%= button_to "Remove", user_recipe_recipe_food_path(@recipe.user, @recipe, recipe_food), method: :delete %></td>
+                </tr>
+            <%end%>
+        </table>
+    </div>  
+</div>
