@@ -1,23 +1,26 @@
-<%if@recipes.empty?%>
-  <h1 class="text-important font-important text-center">There is no recipe.</h1>
-<%else%>
-<div class="px-4 py-6"><h1 class="font-bold text-important bg-mainTheme dark:bg-darkTheme text-white py-4 rounded-md text-center">Public Recipes</h1>
-
-<ul class="d-flex flex-column gap-5">
-  <% @recipes.each do |recipe|%>
-  <li class=" list-group-item">
-    <a href="/users/<%= recipe.user_id%>/recipes/<%=recipe.id%>" class="d-flex p-3 flex-wrap border border-2 border-dark">
-      <div class="col-span-1 relative flex flex-col justify-center items-center col-12 col-md-6">
-        <h2 class="font-important text-important"><%= recipe.name %></h2>
-        <span>By: <%= recipe.user.email%></span>
-        </div>
-      <p class="py-4 px-2 flex flex-col col-12 col-md-6">
-        <span>Total Food Items:<%= recipe.foods.length%> </span>
-        <span>Total Price: <%= recipe.total %></span>
-      </p>
-    </a>
-    </li>
+<div class="container">
+  <%if@recipes.empty?%>
+    <h1 class="text-important font-important text-center">There is no recipe.</h1>
+  <%else%>
+    <div class="px-4 py-6 index-recipes">
+      <h1 class="font-bold text-important bg-mainTheme dark:bg-darkTheme text-white py-4 rounded-md text-center">Public Recipes</h1>
+      <ul class="d-flex flex-column gap-5">
+        <% @recipes.each do |recipe|%>
+          <li class=" list-group-item">
+            <a href="/users/<%= recipe.user_id%>/recipes/<%=recipe.id%>" class="d-flex p-3 flex-wrap border border-2 border-dark">
+              <div class="col-span-1 relative flex flex-col justify-center items-center col-12 col-md-6">
+                <h2 class="font-important text-important"><%= recipe.name %></h2>
+                <span>By: <%= recipe.user.email%></span>
+                </div>
+              <p class="py-4 px-2 flex flex-col col-12 col-md-6">
+                <span>Total Food Items:<%= recipe.foods.length%> </span>
+                <span>Total Price: <%= recipe.total %></span>
+              </p>
+            </a>
+          </li>
+        <%end%>
+      </ul>
+    </div>
   <%end%>
-</ul>
 </div>
-<%end%>
+
