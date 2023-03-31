@@ -1,44 +1,12 @@
-.index-recipes a {
+.recipe {
+  display: flex;
+  width: 100%;
+}
+
+.recipe form {
+  margin-left: auto;
+}
+
+.recipe a {
   color: black;
-}
-
-.index-recipes ul {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  margin-top: 1em;
-}
-
-.index-recipes ul {
-  list-style: none;
-}
-
-.index-recipes ul li {
-  border: 1px solid gray;
-  padding: 1em 2em;
-  border-radius: 7px;
-}
-
-.index-recipes ul li a,
-.index-recipes ul li a > div {
-  display: flex;
-  align-items: center;
-  gap: 2em;
-}
-
-.index-recipes ul li a > div h2 {
-  margin-right: 1em;
-}
-
-.box-container {
-  border: 2px solid;
-  padding: 20px;
-  margin: 20px;
-}
-
-.recipe-box {
-  display: flex;
-  padding-bottom: 10px;
-  gap: 50px;
-  align-items: center;
 }

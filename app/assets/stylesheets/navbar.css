@@ -81,8 +81,8 @@ input[type="submit"],
 .actions__button {
   display: block;
   padding: 0.5em;
-  background-color: #007bff;
-  color: black;
+  background-color: #696a6a;
+  color: white;
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -90,7 +90,7 @@ input[type="submit"],
 
 input[type="submit"]:hover,
 .actions__button:hover {
-  background-color: #0069d9;
+  background-color: #070808;
 }
 
 .alert-success {
