@@ -8,7 +8,7 @@ RSpec.describe 'Foods', type: :request do
 
   describe 'GET /index' do
     before do
-      get foods_path
+      get '/'
     end
 
     it 'response to html' do
@@ -19,7 +19,8 @@ RSpec.describe 'Foods', type: :request do
   describe 'GET /new' do
     before do
       sign_in user
-      get new_food_path
+      get user_foods_path(user)
+      get new_user_food_path
     end
 
     it 'response to html' do

@@ -9,8 +9,9 @@ RSpec.describe 'RecipeFood', type: :request do
   end
   describe 'GET /index' do
     before do
-      # sign_in user
-      get new_recipe_recipe_food_path(recipe)
+      sign_in user
+      get user_recipes_path(user)
+      get new_user_recipe_path(user)  
     end
 
     it 'response to html' do
