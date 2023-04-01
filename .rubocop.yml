@@ -7,6 +7,8 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - vendor/**/* # or vendor/bundle/**/*
+    - gemfiles/vendor/bundle/**/*
 
   DisplayCopNames: true
 
