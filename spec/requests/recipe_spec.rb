@@ -11,7 +11,7 @@ RSpec.describe 'RecipeFood', type: :request do
     before do
       sign_in user
       get user_recipes_path(user)
-      get new_user_recipe_path(user)  
+      get new_user_recipe_path(user)
     end
 
     it 'response to html' do
