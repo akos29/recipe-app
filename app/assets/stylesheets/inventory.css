@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 60%;
 }
 
 .inventory-title {
@@ -19,9 +20,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
   gap: 1rem;
   flex-direction: column;
+  width: 100%;
 }
 
 .inventories-container li {
@@ -29,16 +30,16 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.3rem;
-  width: 20rem;
-  border: 2px solid black;
+  border: 1px solid gray;
   padding: 10px;
+  width: 100%;
 }
 
 .inventory-element {
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
-  gap: 0.3rem;
+  flex-direction: row;
+  gap: 2em
 }
 
 .inven-remove {
@@ -59,16 +60,14 @@
 
 .add-inventory {
   padding: 0.4em;
-  background-color: whitesmoke;
+  background-color: #b3b3b3;
   color: rgb(90, 90, 90);
-  border: 2px solid gray;
+  border: 1px solid gray;
   cursor: pointer;
-  border-radius: 0.5em;
-  margin: 1em 0 1em 0;
+  margin-top: 2em;
 }
 
 .inventory-container div a {
-  background-color: white;
   border: none;
   color: black;
   font-weight: 600;
@@ -129,6 +128,7 @@ input[type="text"] {
   border: 1px solid #ccc;
   padding: 5px;
   margin: 5px;
+  width: 100%;
 }
 
 textarea {
