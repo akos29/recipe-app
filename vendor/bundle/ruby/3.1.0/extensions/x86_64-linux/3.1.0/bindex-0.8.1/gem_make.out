@@ -1,0 +1,15 @@
+current directory: /home/user/Documents/GitHub/recipe-app/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+/home/user/.rbenv/versions/3.1.3/bin/ruby -I /home/user/.rbenv/versions/3.1.3/lib/ruby/3.1.0 extconf.rb
+creating Makefile
+
+current directory: /home/user/Documents/GitHub/recipe-app/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230331-11563-6mi4ei sitelibdir\=./.gem.20230331-11563-6mi4ei clean
+
+current directory: /home/user/Documents/GitHub/recipe-app/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230331-11563-6mi4ei sitelibdir\=./.gem.20230331-11563-6mi4ei
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/user/Documents/GitHub/recipe-app/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230331-11563-6mi4ei sitelibdir\=./.gem.20230331-11563-6mi4ei install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20230331-11563-6mi4ei/skiptrace/internal
