@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Foods', type: :request do
   include Devise::Test::IntegrationHelpers
 
-  let(:user) { User.create(email: 'cake@mail.com', password: 'password') }
+  let(:user) { User.create(name: 'cake', email: 'cake@mail.com', password: 'password') }
   let(:food) { user.foods.create(name: 'apple', measurementUnit: 'kg', price: 4) }
 
   describe 'GET /index' do
     before do
-      get '/'
+      get foods_path
     end
 
     it 'response to html' do
@@ -19,8 +19,7 @@ RSpec.describe 'Foods', type: :request do
   describe 'GET /new' do
     before do
       sign_in user
-      get user_foods_path(user)
-      get new_user_food_path
+      get new_food_path
     end
 
     it 'response to html' do

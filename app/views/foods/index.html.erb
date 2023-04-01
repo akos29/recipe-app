@@ -1,42 +1,25 @@
- <div class="foods-container">
-  <div class="foods-header">
-    <h1 class="foods-title">Foods List</h1>
-    <div>
-        <%= link_to "Add Food", new_user_food_path, class: 'add-food-btn' %>
-    </div>
-  </div>
-  <div class="foods-table">
-    <table>
-      <thead>
-        <tr>
-          <th class="foods-list-col-food">Food</th>
-          <th class="foods-list-col-measurement">Measurement Unit</th>
-          <th class="foods-list-col-price">Unit Price</th>
-          <th class="foods-list-col-actions">Actions</th>
-        </tr>
-      </thead>
-      <% if @user.foods.empty? %>
-        <tbody>
-          <tr class="foods-list-empty">
-            <td colspan="4" class="foods-list-empty-text">Please Add Foods!!!</td>
-          </tr>
-        </tbody>
-      <% else %>
-        <tbody>
-          <% @user.foods.each do |food| %>
-            <tr class="foods-list-row">
-              <td class="foods-list-col-food"><%= food.name %></td>
-              <td class="foods-list-col-measurement"><%= food.measurement_unit %></td>
-              <td class="foods-list-col-price"><%= "$ #{food.price}" %></td>
-              <td class="foods-list-col-actions">
-                <%= button_to user_food_path(@user, food), method: :delete, class: "delete-food-btn" do %>
-                  Delete
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      <% end %>
-    </table>
-  </div>
+<p style="color: green"><%= notice %></p>
+
+<div class="food-add-new-btn">
+  <%= button_to "Add food", new_food_path, method: :get, class: 'btn-submit' %>
 </div>
+
+<table class="foods-food-table">
+  <thead class="foods-head-table">
+  <tr>
+    <th>Food </th>
+    <th>Unit price</th>
+    <th>Quantity</th>
+    <th>Measurement unit</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody id="foods">
+    <% @foods.each do |food| %>
+      <% if (current_user.id == food.user_id) || (current_user.admin?) %> 
+        <%= render food %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,42 +1,45 @@
 class FoodsController < ApplicationController
+  before_action :set_food, only: %i[show edit update destroy]
+
   def index
-    @user = User.find(params[:user_id])
-    @foods = Food.find_by(user_id: params[:id])
+    @foods = Food.all
   end
 
-  def show
-    @user = User.find(params[:user_id])
-    @food = Food.find_by(id: params[:id])
-  end
+  def show; end
 
   def new
     @food = Food.new
   end
 
   def create
-    @food = Food.new(food_params)
-    @food.user = current_user
-    if @food.save
-      flash[:success] = 'Food successfully added!'
-      redirect_to user_foods_path(current_user)
-    else
-      flash.now[:error] = 'Food addition failed!'
-      render :new
+    # @food = Food.new(food_params)
+    @food = current_user.foods.build(food_params)
+
+    respond_to do |format|
+      if @food.save
+        format.html { redirect_to foods_path, notice: 'Food was successfully created.' }
+        format.json { render :show, status: :created, location: @food }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @food.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
-    @food = Food.find(params[:id])
+    @food.destroy
 
-    if @food.user_id == current_user.id && @food.destroy
-      flash[:success] = 'Food deleted successfully!'
-    else
-      flash[:error] = 'Food removal failed!'
+    respond_to do |format|
+      format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
+      format.json { head :no_content }
     end
-    redirect_to user_foods_path(current_user)
   end
 
   private
+
+  def set_food
+    @food = Food.find(params[:id])
+  end
 
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)

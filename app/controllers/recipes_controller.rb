@@ -1,37 +1,74 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource
+  before_action :set_recipe, only: %i[show edit update destroy]
+
   def index
-    @recipes = current_user.recipes
+    @recipes = Recipe.all
   end
 
   def show
-    @user = current_user
-    @recipe = Recipe.find_by(id: params[:id])
-    @recipe_foods = @recipe.recipe_foods
+    @inventories = Inventory.where(user_id: current_user.id)
   end
 
   def new
-    @new_recipe = Recipe.new
+    @recipe = Recipe.new
   end
 
+  def edit; end
+
   def create
-    @food = Recipe.new(params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public))
-    @food.user = current_user
-    if @food.save
-      flash[:success] = 'Recipe successfully added!'
-      redirect_to user_recipes_path(current_user)
-    else
-      flash.now[:error] = 'Recipe creation failed!'
-      render :new
+    @recipe = current_user.recipes.build(recipe_params)
+
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
+        format.json { render :show, status: :created, location: @recipe }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
-    if @recipe.destroy
-      flash[:success] = 'Post deleted successfully'
-      redirect_to root_path
-    else
-      flash.now[:error] = 'Error: Post could not be deleted'
+    @recipe.recipe_foods.destroy_all
+
+    respond_to do |format|
+      if @recipe.destroy
+        format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { render :delete, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
+  end
+
+  def public_recipes
+    @recipes = Recipe.where(public: true).order(created_at: :desc)
+  end
+
+  def about; end
+
+  private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
 end

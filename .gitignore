@@ -6,6 +6,10 @@
 
 # Ignore bundler config.
 /.bundle
+/node_modules
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-*
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -30,13 +34,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/node_modules
 
-# Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
-
-config/initializers/secret_token.rb
-config/master.key
+node_modules/

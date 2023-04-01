@@ -1,3 +1,5 @@
+<div class="add-food">
+
 <%= form_with(model: food) do |form| %>
   <% if food.errors.any? %>
     <div style="color: red">
@@ -12,26 +14,25 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "food-form-label" %>
+    <%= form.text_field :name, class: "food-form-input" %>
   </div>
 
   <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.label :measurement_unit, class: "food-form-label" %>
+    <%= form.select :measurement_unit, options_for_select([['Please choose unit', 'option'], ['kg', 'kg'], ['g', 'g'], ['lb', 'lb']], { class: "food-form-select" }) %>
   </div>
 
   <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.text_field :quantity %>
+    <%= form.label :price, class: "food-form-label" %>
+    <%= form.text_field :price, class: "food-form-input" %>
   </div>
 
   <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
+    <%= form.label :quantity, class: "food-form-label" %>
+    <%= form.text_field :quantity, class: "food-form-input" %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit "Add Food", class: "food-form-submit" %>
 <% end %>
+</div>
