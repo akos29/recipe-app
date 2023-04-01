@@ -1,0 +1,19 @@
+.recipe-form-time-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recipe-form-check-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5em;
+}
+
+.recipe-form-check-box label {
+  margin-bottom: 0;
+}
+
+textarea {
+  height: 120px;
+}

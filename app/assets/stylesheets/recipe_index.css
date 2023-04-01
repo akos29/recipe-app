@@ -1,0 +1,12 @@
+.recipe {
+  display: flex;
+  width: 100%;
+}
+
+.recipe form {
+  margin-left: auto;
+}
+
+.recipe a {
+  color: black;
+}

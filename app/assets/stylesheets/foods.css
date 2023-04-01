@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.foods-food-table {
+  width: 600px;
+  text-align: left;
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.foods-head-table {
+  background-color: silver;
+  border-collapse: collapse;
+}
+
+.foods-tr td,
+th {
+  height: 30px;
+  text-align: center;
+}
+
+.foods-tr:nth-child(even) {
+  background-color: #ddd;
+  padding: 10px;
+}
+
+.food-add-new-btn {
+  width: 600px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+}
+
+.btn-submit {
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.food-form-label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.food-form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.food-form-submit {
+  background-color: #07c;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}
+
+button.recipe-remove {
+  text-decoration: none;
+  color: black;
+  background-color: #e4e4e4;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}

@@ -1,0 +1,47 @@
+
+
+
+
+
+
+
+ <div class="foods-container">
+  <div class="foods-header">
+    <h1 class="foods-title">Public Recipes</h1>
+  </div>
+  <div class="foods-table">
+    <table>
+      <thead>
+        <tr>
+          <th class="foods-list-col-food">Recipes</th>
+        </tr>
+      </thead>
+      <% if @recipes.empty? %>
+        <tbody>
+          <tr class="foods-list-empty">
+            <td colspan="4" class="foods-list-empty-text">There is no public recipe</td>
+          </tr>
+        </tbody>
+      <% else %>
+        <tbody>
+          <% @recipes.each do |recipe| %>
+            <tr class="foods-list-row">
+              <td class="foods-list-col-food recipe">
+                  <a href="/users/<%= recipe.user_id%>/recipes/<%=recipe.id%>" class="d-flex p-3 flex-wrap border border-2 border-dark">
+                    <div class="col-span-1 relative flex flex-col justify-center items-center col-12 col-md-6">
+                      <h2 class="font-important text-important"><%= recipe.name %></h2>
+                      <span>By: <%= recipe.user.email%></span>
+                    </div>
+                    <p class="py-4 px-2 flex flex-col col-12 col-md-6">
+                      <span>Total Food Items:<%= recipe.foods.length%> </span> <br>
+                      <span>Total Price: <%= recipe.total %></span>
+                    </p>
+                  </a>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

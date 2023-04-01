@@ -1,0 +1,38 @@
+<div class="add-food">
+
+<%= form_with(model: food) do |form| %>
+  <% if food.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+
+      <ul>
+        <% food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, class: "food-form-label" %>
+    <%= form.text_field :name, class: "food-form-input" %>
+  </div>
+
+  <div>
+    <%= form.label :measurement_unit, class: "food-form-label" %>
+    <%= form.select :measurement_unit, options_for_select([['Please choose unit', 'option'], ['kg', 'kg'], ['g', 'g'], ['lb', 'lb']], { class: "food-form-select" }) %>
+  </div>
+
+  <div>
+    <%= form.label :price, class: "food-form-label" %>
+    <%= form.text_field :price, class: "food-form-input" %>
+  </div>
+
+  <div>
+    <%= form.label :quantity, class: "food-form-label" %>
+    <%= form.text_field :quantity, class: "food-form-input" %>
+  </div>
+
+  <%= form.submit "Add Food", class: "food-form-submit" %>
+<% end %>
+</div>

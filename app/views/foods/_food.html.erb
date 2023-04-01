@@ -1,0 +1,11 @@
+<tr class="foods-tr">
+  <td><%= food.name %></td>
+  <td><%= food.price %></td>
+  <td><%= food.quantity%></td>
+  <td><%= food.measurement_unit %></td>
+  <% if can? :destroy, food %>
+    <td> <%= button_to "Delete", food, method: :delete, class: "recipe-remove" %></td>
+  <% end %>
+</tr>
+
+
